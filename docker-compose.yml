@@ -1,0 +1,16 @@
+
+services:
+  backend:
+    build:
+        dockerfile: Dockerfile
+        context: .
+        target: development
+    command: npm run dev
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/
+      - /usr/app/node_modules
+    ports:
+      - ${PORT}:${PORT}
+#      - 9229:9229
